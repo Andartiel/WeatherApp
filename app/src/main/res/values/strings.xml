@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">WeatherApp</string>
-    <string name="title">Weather</string>
+    <string name="title">Погода</string>
+
+    <string name="parametr_temperature">Тепмпература</string>
+    <string name="parametr_humidity">Влажность</string>
+    <string name="parametr_preasure">Давление</string>
+
+    <string name="button_refresh">Обновить</string>
+
+
+
 </resources>
