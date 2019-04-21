@@ -6,6 +6,8 @@
     <string name="parametr_humidity">Влажность</string>
     <string name="parametr_preasure">Давление</string>
 
+    <string name="weather_sunny">Солнечно</string>
+
     <string name="button_refresh">Обновить</string>
 
 
