@@ -22,54 +22,54 @@
         app:layout_constraintVertical_bias="0.02" />
 
     <TextView
-        android:id="@+id/parametr_temperature"
+        android:id="@+id/parameter_temperature"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="104dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
-        android:text="@string/parametr_temperature"
+        android:text="@string/parameter_temperature"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.591" />
+        app:layout_constraintVertical_bias="0.618" />
 
     <TextView
-        android:id="@+id/parametr_humidity"
+        android:id="@+id/parameter_humidity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:text="@string/parametr_humidity"
+        android:text="@string/parameter_humidity"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/parametr_temperature" />
+        app:layout_constraintTop_toBottomOf="@+id/parameter_temperature" />
 
     <TextView
-        android:id="@+id/parametr_preasure"
+        android:id="@+id/parameter_preassure"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="@string/parametr_preasure"
+        android:text="@string/parameter_preassure"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/parametr_humidity"
+        app:layout_constraintTop_toBottomOf="@+id/parameter_humidity"
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/sunnyIcon"
-        android:layout_width="278dp"
-        android:layout_height="251dp"
+        android:layout_width="210dp"
+        android:layout_height="165dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:background="#2196F3"
@@ -81,6 +81,21 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.234"
         app:srcCompat="@drawable/sun" />
+
+    <TextView
+        android:id="@+id/location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/location"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/button_refresh"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sunnyIcon"
+        app:layout_constraintVertical_bias="0.087" />
 
     <Button
         android:id="@+id/button_refresh"
