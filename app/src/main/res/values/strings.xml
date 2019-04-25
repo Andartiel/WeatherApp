@@ -7,7 +7,7 @@
 
 
     <string name="parameter_humidity">Влажность</string>
-    <string name="parameter_preassure">Давление</string>
+    <string name="parameter_pressure">Давление</string>
 
     <string name="weather_sunny">Солнечно</string>
 
