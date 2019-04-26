@@ -2,23 +2,25 @@
     <string name="app_name">WeatherApp</string>
     <string name="title">Погода</string>
 
+    <string name="city_request">Введите название города</string>
+
     <string name="parameter_temperature">Тепмпература</string>
-    <string name="measure_temperature"> градуса</string>
-
-
     <string name="parameter_humidity">Влажность</string>
     <string name="parameter_pressure">Давление</string>
 
     <string name="weather_sunny">Солнечно</string>
 
     <string name="button_refresh">Обновить</string>
+    <string name="button_search">Запрос</string>
+    <string name="button_back">Назад</string>
 
     <string name="greeting">Приветствую</string>
 
 
     <string name="location">Лондон</string>
 
-    <string name="toast_refresh">Поиск...</string>
+    <string name="toast_refresh">Подождите...</string>
+    <string name="toast_search">Поиск...</string>
 
     <string name="space"> </string>
 

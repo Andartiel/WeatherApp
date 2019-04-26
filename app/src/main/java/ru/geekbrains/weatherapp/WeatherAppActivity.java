@@ -14,6 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import static ru.geekbrains.weatherapp.R.id.city_request;
 import static ru.geekbrains.weatherapp.R.id.parameter_temperature;
 
 public class WeatherAppActivity extends AppCompatActivity {
@@ -21,49 +22,43 @@ public class WeatherAppActivity extends AppCompatActivity {
     private static final String TAG = "WeatherAppActivity";
 
 
-
     Date currentDate = new Date();
     SimpleDateFormat formatForDateNow = new SimpleDateFormat("E dd.MM.yyyy 'время' hh:mm:ss", Locale.getDefault());
-    private TextView dateView;
-    private ImageView sunIcon;
+    private TextView mDateView;
+    private ImageView mSunIcon;
     private Button mRefreshButton;
+    private Button mBackButton;
 
-    private TextView temperatureParameter;
-    private TextView humidityParameter;
-    private TextView pressureParameter;
+    private TextView mTemperatureParameter;
+    private TextView mHumidityParameter;
+    private TextView mPressureParameter;
 
-    private TextView location;
+    private TextView mLocation;
+
+    static final String keyForCityData = "keyForCityDataForWeatherAppActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        String instanceState;
-        if (savedInstanceState == null) {
-            instanceState = "Приветствую!";
-        } else {
-            instanceState = "Повторный запуск!";
-        }
 
-        Log.d(TAG, "onCreate(Bundle) called");
+        Log.d(TAG, "onCreate(Bundle) WeatherAppActivity called");
         setContentView(R.layout.activity_weatherapp);
 
-        dateView = findViewById(R.id.dateView);
-        dateView.setText(formatForDateNow.format(currentDate));
-        dateView.setVisibility(View.INVISIBLE);
+        mDateView = findViewById(R.id.dateView);
+        mDateView.setText(formatForDateNow.format(currentDate));
 
-        sunIcon = findViewById(R.id.sunnyIcon);
-        sunIcon.setImageBitmap(BitmapFactory.decodeResource(this.getResources(), R.drawable.sun));
-        sunIcon.setVisibility(View.INVISIBLE);
 
-        temperatureParameter = findViewById(parameter_temperature);
-        temperatureParameter.setVisibility(View.INVISIBLE);
-        humidityParameter = findViewById(R.id.parameter_humidity);
-        humidityParameter.setVisibility(View.INVISIBLE);
-        pressureParameter = findViewById(R.id.parameter_pressure);
-        pressureParameter.setVisibility(View.INVISIBLE);
+        mSunIcon = findViewById(R.id.sunnyIcon);
+        mSunIcon.setImageBitmap(BitmapFactory.decodeResource(this.getResources(), R.drawable.sun));
 
-        location = findViewById(R.id.location);
-        location.setVisibility(View.INVISIBLE);
+        mTemperatureParameter = findViewById(parameter_temperature);
+        mHumidityParameter = findViewById(R.id.parameter_humidity);
+        mPressureParameter = findViewById(R.id.parameter_pressure);
+
+
+        mLocation = findViewById(R.id.location);
+        String mGetLocation = getIntent().getStringExtra(CityRequestActivity.keyForCityData);
+        mLocation.setText(mGetLocation);
 
         mRefreshButton = findViewById(R.id.button_refresh);
         mRefreshButton.setOnClickListener(new View.OnClickListener() {
@@ -72,19 +67,16 @@ public class WeatherAppActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(WeatherAppActivity.this, R.string.toast_refresh,
                         Toast.LENGTH_SHORT).show();
+                mTemperatureParameter.setText("Температура 23 градуса");
+                mHumidityParameter.setText("Влажность 67%");
+                mPressureParameter.setText("Давление 1002 мбар");
+            }
+        });
 
-                dateView.setVisibility(View.VISIBLE);
-                sunIcon.setVisibility(View.VISIBLE);
-                location.setVisibility(View.VISIBLE);
-
-                temperatureParameter.setText("Температура 23 градуса" );
-                temperatureParameter.setVisibility(View.VISIBLE);
-
-                humidityParameter.setText("Влажность 67%");
-                humidityParameter.setVisibility(View.VISIBLE);
-
-                pressureParameter.setText("Давление 1002 мбар");
-                pressureParameter.setVisibility(View.VISIBLE);
+        mBackButton = findViewById(R.id.button_back);
+        mBackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
             }
         });
@@ -94,37 +86,37 @@ public class WeatherAppActivity extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-        Log.d(TAG, "onStart() called");
+        Log.d(TAG, "onStart() WeatherAppActivity called");
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        Log.d(TAG, "onResume() called");
+        Log.d(TAG, "onResume() WeatherAppActivity called");
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        Log.d(TAG, "onPause() called");
+        Log.d(TAG, "onPause() WeatherAppActivity called");
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        Log.d(TAG, "onStop() called");
+        Log.d(TAG, "onStop() WeatherAppActivity called");
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
-        Log.d(TAG, "onRestart() called");
+        Log.d(TAG, "onRestart() WeatherAppActivity called");
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.d(TAG, "onDestroy() called");
+        Log.d(TAG, "onDestroy() WeatherAppActivity called");
     }
 
     @Override
