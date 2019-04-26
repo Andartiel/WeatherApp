@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#3D8F48"
     tools:context=".CityRequestActivity">
 
     <EditText
@@ -12,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
+        android:background="#007EB65B"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="@string/city_request"

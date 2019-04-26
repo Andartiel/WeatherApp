@@ -1,5 +1,6 @@
 package ru.geekbrains.weatherapp;
 
+import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -21,10 +22,13 @@ public class WeatherAppActivity extends AppCompatActivity {
 
     private static final String TAG = "WeatherAppActivity";
 
+    private int startCityRequestActivityKey = 4321;
+
 
     Date currentDate = new Date();
     SimpleDateFormat formatForDateNow = new SimpleDateFormat("E dd.MM.yyyy 'время' hh:mm:ss", Locale.getDefault());
     private TextView mDateView;
+
     private ImageView mSunIcon;
     private Button mRefreshButton;
     private Button mBackButton;
@@ -44,6 +48,13 @@ public class WeatherAppActivity extends AppCompatActivity {
         Log.d(TAG, "onCreate(Bundle) WeatherAppActivity called");
         setContentView(R.layout.activity_weatherapp);
 
+       initViews();
+       setOnClickRefreshButton();
+       setOnClickBackButton();
+
+    }
+
+    private void initViews(){
         mDateView = findViewById(R.id.dateView);
         mDateView.setText(formatForDateNow.format(currentDate));
 
@@ -61,8 +72,13 @@ public class WeatherAppActivity extends AppCompatActivity {
         mLocation.setText(mGetLocation);
 
         mRefreshButton = findViewById(R.id.button_refresh);
-        mRefreshButton.setOnClickListener(new View.OnClickListener() {
+        mBackButton = findViewById(R.id.button_back);
 
+    }
+
+    private void setOnClickRefreshButton(){
+
+        mRefreshButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(WeatherAppActivity.this, R.string.toast_refresh,
@@ -72,15 +88,17 @@ public class WeatherAppActivity extends AppCompatActivity {
                 mPressureParameter.setText("Давление 1002 мбар");
             }
         });
+    }
 
-        mBackButton = findViewById(R.id.button_back);
+    private void setOnClickBackButton(){
+
         mBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(WeatherAppActivity.this, CityRequestActivity.class);
+                startActivityForResult(intent, startCityRequestActivityKey);
             }
         });
-
     }
 
     @Override

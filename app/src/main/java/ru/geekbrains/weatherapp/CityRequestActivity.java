@@ -24,25 +24,38 @@ public class CityRequestActivity extends AppCompatActivity {
         Log.d(TAG, "onCreate() CityRequestActivity called");
         setContentView(R.layout.activity_city_request);
 
+        initViews();
+        setOnClickCityRequestView();
+        setOnClickSearchButton();
+
+    }
+
+    private void initViews() {
         mCityRequestView = findViewById(R.id.city_request);
+        mSearchButton = findViewById(R.id.button_search);
+    }
+
+    private void setOnClickCityRequestView() {
         mCityRequestView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mCityRequestView.setText("");
             }
         });
+    }
 
-        mSearchButton = findViewById(R.id.button_search);
+    public void setOnClickSearchButton() {
         mSearchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String CityName = mCityRequestView.getText().toString();
                 Intent intent = new Intent(CityRequestActivity.this, WeatherAppActivity.class);
-                intent.putExtra(keyForCityData,CityName);
+                intent.putExtra(keyForCityData, CityName);
                 startActivityForResult(intent, startWeatherAppActivityKey);
             }
         });
     }
+
     @Override
     public void onStart() {
         super.onStart();
