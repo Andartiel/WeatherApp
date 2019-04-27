@@ -6,9 +6,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.Switch;
+import android.widget.Toast;
 
-public class CityRequestActivity extends AppCompatActivity {
+public class CityRequestActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
 
     private static final String TAG = "CityRequestActivity";
 
@@ -17,6 +20,10 @@ public class CityRequestActivity extends AppCompatActivity {
 
     private EditText mCityRequestView;
     private Button mSearchButton;
+
+    private Switch mTemperatureParameterSwitch;
+    private Switch mHumidityParameterSwitch;
+    private Switch mPressureParameterSwitch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +40,18 @@ public class CityRequestActivity extends AppCompatActivity {
     private void initViews() {
         mCityRequestView = findViewById(R.id.city_request);
         mSearchButton = findViewById(R.id.button_search);
+        mTemperatureParameterSwitch = findViewById(R.id.switch_temperature);
+        if (mTemperatureParameterSwitch != null) {
+            mTemperatureParameterSwitch.setOnCheckedChangeListener(this);
+        }
+        mHumidityParameterSwitch = findViewById(R.id.switch_humidity);
+        if ( mHumidityParameterSwitch != null) {
+            mHumidityParameterSwitch.setOnCheckedChangeListener(this);
+        }
+        mPressureParameterSwitch = findViewById(R.id.switch_pressure);
+        if (mPressureParameterSwitch != null) {
+            mPressureParameterSwitch.setOnCheckedChangeListener(this);
+        }
     }
 
     private void setOnClickCityRequestView() {
@@ -90,5 +109,11 @@ public class CityRequestActivity extends AppCompatActivity {
     public void onDestroy() {
         super.onDestroy();
         Log.d(TAG, "onDestroy() CityRequestActivity called");
+    }
+
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        Toast.makeText(this, "Отслеживание переключения: " + (isChecked ? "on" : "off"),
+                Toast.LENGTH_SHORT).show();
     }
 }

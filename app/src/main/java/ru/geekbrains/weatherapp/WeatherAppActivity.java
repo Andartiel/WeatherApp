@@ -68,8 +68,8 @@ public class WeatherAppActivity extends AppCompatActivity {
 
 
         mLocation = findViewById(R.id.location);
-        String mGetLocation = getIntent().getStringExtra(CityRequestActivity.keyForCityData);
-        mLocation.setText(mGetLocation);
+        String GetLocation = getIntent().getStringExtra(CityRequestActivity.keyForCityData);
+        mLocation.setText(GetLocation);
 
         mRefreshButton = findViewById(R.id.button_refresh);
         mBackButton = findViewById(R.id.button_back);
