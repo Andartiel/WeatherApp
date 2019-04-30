@@ -1,12 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">WeatherApp</string>
     <string name="title">Погода</string>
 
     <string name="city_request">Введите название города</string>
 
-    <string name="parameter_temperature">Тепмпература</string>
+    <string name="parameter_temperature">Температура</string>
     <string name="parameter_humidity">Влажность</string>
     <string name="parameter_pressure">Давление</string>
+
+    <string name="parameter_temperature_result">"Температура 23 градуса"</string>
+    <string name="parameter_humidity_result">Влажность 67%</string>
+    <string name="parameter_pressure_result">Давление 1002 мбар</string>
 
     <string name="weather_sunny">Солнечно</string>
 

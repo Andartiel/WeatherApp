@@ -83,9 +83,9 @@ public class WeatherAppActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(WeatherAppActivity.this, R.string.toast_refresh,
                         Toast.LENGTH_SHORT).show();
-                mTemperatureParameter.setText("Температура 23 градуса");
-                mHumidityParameter.setText("Влажность 67%");
-                mPressureParameter.setText("Давление 1002 мбар");
+                mTemperatureParameter.setText(R.string.parameter_temperature_result);
+                mHumidityParameter.setText(R.string.parameter_humidity_result);
+                mPressureParameter.setText(R.string.parameter_pressure_result);
             }
         });
     }

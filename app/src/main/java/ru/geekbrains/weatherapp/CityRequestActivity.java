@@ -16,7 +16,9 @@ public class CityRequestActivity extends AppCompatActivity implements CompoundBu
     private static final String TAG = "CityRequestActivity";
 
     private int startWeatherAppActivityKey = 1234;
-    static final String keyForCityData = "keyForCityDada";
+    static final String keyForCityData = "keyForCityData";
+
+    static final boolean keyForTemperatureSwitch = false;
 
     private EditText mCityRequestView;
     private Button mSearchButton;
@@ -116,4 +118,6 @@ public class CityRequestActivity extends AppCompatActivity implements CompoundBu
         Toast.makeText(this, "Отслеживание переключения: " + (isChecked ? "on" : "off"),
                 Toast.LENGTH_SHORT).show();
     }
+
+
 }
